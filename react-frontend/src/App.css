@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+* {
+    font-family: "Source Sans Pro";
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    padding-right: 2em;
+    justify-content: flex-end;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+}
+
+.navbar-item:link {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-item:visited {
+    text-decoration: none !important;
+    color: black;
+}
+
+.navbar-item:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container h1 {
+    place-self: center;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.bar {
+    width: 30vw;
+    height: 3vh;
+    padding: .5em;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.bar:focus {
+    outline: none;
+}
+
+.form-button {
+    width: fit-content;
+    font-size: 1rem;
+    padding: 0;
+    margin-top: 1em;
+    place-self: center;
+}
+
+.form-button:hover {
+    cursor: pointer;
+}
+
+.container p {
+    font-size: 1.5rem;
+    place-self: center;
+}

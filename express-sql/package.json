@@ -1,0 +1,25 @@
+{
+  "name": "sql-react",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start-sql-docker && nodemon index.js",
+    "stop": "npm run stop-sql-docker",
+    "start-sql-docker": "docker run --name db -p 3306:3306 -v mysql-data:/var/lib/mysql -v mysql-config:/etc -d mysql/mysql-server:8.0.25",
+    "stop-sql-docker": "docker stop db && docker rm db"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
