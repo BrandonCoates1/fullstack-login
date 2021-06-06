@@ -5,13 +5,18 @@ const Register = () => {
     const [nameInput, setNameInput] = useState("");
     const [emailInput, setEmailInput] = useState("");
     const [passwordInput, setPasswordInput] = useState("");
+    const [passwordMatch, setPasswordMatch] = useState("");
     const [error, setError] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const submitted = {name: nameInput ,email: emailInput, password: passwordInput};
-
+        const submitted = {name: nameInput, email: emailInput, password: passwordInput};
+        
         try {
+            if (passwordMatch !== passwordInput) {
+                throw new Error("Password do not match");
+            }
+
             const response = await fetch("http://localhost:5000/users/register", {
                 method: "POST",
                 headers: {
@@ -25,6 +30,7 @@ const Register = () => {
             setNameInput("");
             setEmailInput("");
             setPasswordInput("");
+            setPasswordMatch("");
 
             if (response.status !== 200) {
                 const error = await response.json();
@@ -70,6 +76,12 @@ const Register = () => {
                         className="bar"
                         value={passwordInput}
                         onChange={(e) => {setPasswordInput(e.target.value)}} />
+                    <input type="password" 
+                        name="passwordMatch"
+                        placeholder="Enter your password again"
+                        className="bar"
+                        value={passwordMatch}
+                        onChange={(e) => {setPasswordMatch(e.target.value)}} />
                    <input type="submit" name="submit" className="form-button" value="Submit" />
                 </form>
             </div>
