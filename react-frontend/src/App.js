@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./components/login";
 import Register from "./components/register";
+import Information from "./components/information";
+import Quiz from "./components/quiz";
 import './App.css';
 
 const App = () => {
@@ -22,11 +24,17 @@ const App = () => {
         </div>
 
         <Switch>
+          <Route path="/quiz">
+            <Quiz />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/">
+            <Information />
           </Route>
         </Switch>
       </Router>

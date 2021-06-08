@@ -45,7 +45,7 @@ router.post("/login", cors(options), async (req, res) => {
             throw new Error("User doesn't exist");
         }
         const result = await bcrypt.compare(req.body.password, user[0][0].password);
-        result ? res.status(200).json({"message": "ok", "status": result, "user": user}) : res.status(500).json({"message": "not ok", "status": result});
+        result ? res.status(200).json({"message": "ok", "status": result, "user": {"name": user[0][0].name, "email": user[0][0].email}}) : res.status(500).json({"message": "not ok", "status": result});
     } catch (Error) {
         res.status(500).json({"message": "not ok", "data": req.body, "error": Error});
     }
